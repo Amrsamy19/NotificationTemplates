@@ -1,14 +1,14 @@
 package Service;
 
-import DataBase.MongoDBHandlerI;
+import DataBase.MongoTemplateHandlerI;
 import Model.Template;
 import org.bson.types.ObjectId;
 import java.util.List;
 
 public class TemplateOperation {
-    private MongoDBHandlerI mongo;
+    private MongoTemplateHandlerI mongo;
 
-    public TemplateOperation(MongoDBHandlerI mongo){
+    public TemplateOperation(MongoTemplateHandlerI mongo){
         this.mongo =  mongo;
     }
 

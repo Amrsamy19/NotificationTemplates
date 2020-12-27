@@ -8,10 +8,10 @@ import org.bson.types.ObjectId;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MongoDBHandlerI implements IDatabaseHandler {
+public class MongoTemplateHandlerI implements IDatabaseHandler<Template> {
     private MongoDB mongo;
 
-    public MongoDBHandlerI(IDatabase mongo){
+    public MongoTemplateHandlerI(IDatabase mongo){
         this.mongo = (MongoDB) mongo;
     }
 

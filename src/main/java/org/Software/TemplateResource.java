@@ -5,7 +5,7 @@ import DataValidation.IValidator;
 import DataBase.IDatabase;
 import DataBase.MongoDB;
 import Model.Template;
-import DataBase.MongoDBHandlerI;
+import DataBase.MongoTemplateHandlerI;
 import Service.TemplateOperation;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -16,12 +16,12 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class TemplateResource {
     private IDatabase mongo = new MongoDB();
-    private MongoDBHandlerI mongoDBHandler;
+    private MongoTemplateHandlerI mongoDBHandler;
     private TemplateOperation templateOperation;
 
     public TemplateResource(){
         mongo.connectToDB();
-        mongoDBHandler = new MongoDBHandlerI(mongo);
+        mongoDBHandler = new MongoTemplateHandlerI(mongo);
         templateOperation = new TemplateOperation(mongoDBHandler);
     }
 

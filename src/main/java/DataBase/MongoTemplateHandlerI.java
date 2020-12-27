@@ -17,7 +17,7 @@ public class MongoDBHandlerI implements IDatabaseHandler {
 
     public List<Object> GET(){
         List<Object> templates = new ArrayList<>();
-        List<Document> documents = mongo.getCollection().find().into(new ArrayList<Document>());
+        List<Document> documents = mongo.getDatabase().getCollection("Templates").find().into(new ArrayList<Document>());
         for(Document document : documents){
             templates.add(new Template(document.get("_id").toString(),
                     (String) document.get("Type"),

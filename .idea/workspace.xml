@@ -7,17 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec7743a3-2b7d-469d-ba6e-6bfba9259bd5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/IDatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/IDatabaseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/MongoTemplateHandlerI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/MongoTemplateHandlerI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/TemplateOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/TemplateOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Software/TemplateResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Software/TemplateResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataBase/IDatabaseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataBase/IDatabaseHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Service/TemplateOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/TemplateOperation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/Software/TemplateResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/Software/TemplateResource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/IDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/IDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/MongoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/MongoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Software/NotificationResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Software/NotificationResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DataBase/IDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataBase/IDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DataBase/MongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataBase/MongoDB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/notifications.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/IDatabaseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/IDatabaseHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/Service/TemplateOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/Service/TemplateOperation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/org/Software/TemplateResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/org/Software/TemplateResource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/IDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/IDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/MongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/MongoDB.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -238,7 +236,8 @@
       <workItem from="1608809055904" duration="42000" />
       <workItem from="1608810210146" duration="29076000" />
       <workItem from="1608927555168" duration="3932000" />
-      <workItem from="1609075466935" duration="321000" />
+      <workItem from="1609075466935" duration="455000" />
+      <workItem from="1609431405216" duration="3182000" />
     </task>
     <servers />
   </component>

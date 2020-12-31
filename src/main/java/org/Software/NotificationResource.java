@@ -10,6 +10,7 @@ import Model.Template;
 import Service.NotificationOperation;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import org.bson.types.ObjectId;
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class NotificationResource {
     public Object getNotification(@QueryParam("templateID") String ID) {
         Object object = notificationOperation.readNotification(ID);
         if(object == null)
-            return "{\"ErrorCode\":\"404\",\"ErrorMessage\":\"The Template is not found\"}";
+            return "{\"ErrorCode\":\"404\",\"ErrorMessage\":\"Template is not found\"}";
         return object;
     }
 
@@ -47,6 +48,11 @@ public class NotificationResource {
     public Object createNotification(Notification notification){
         String errorMessage;
         IValidator<Notification> notificationValidator = new BaseValidator<>();
+        boolean exist = mongo.exists(notification.getTemplateID());
+
+        if(!exist)
+            return "{\"ErrorCode\":\"404\",\"ErrorMessage\":\"Template is not found\"}";
+
         errorMessage = notificationValidator.isValid(notificationValidator.validate(notification));
         if(errorMessage == null)
             return notificationOperation.createNotification(notification);
@@ -59,6 +65,11 @@ public class NotificationResource {
         notification.setID(ID);
         String errorMessage;
         IValidator<Notification> notificationIValidator = new BaseValidator<>();
+        boolean exist = mongo.exists(notification.getTemplateID());
+
+        if(!exist)
+            return "{\"ErrorCode\":\"404\",\"ErrorMessage\":\"Template is not found\"}";
+
         errorMessage = notificationIValidator.isValid(notificationIValidator.validate(notification));
         if(errorMessage == null)
             return notificationOperation.updateNotification(notification);

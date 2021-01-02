@@ -1,11 +1,15 @@
 package Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-@XmlRootElement
 public class Template {
     private String _id;
 
@@ -52,6 +56,18 @@ public class Template {
 
     public String getContent(){
         return content;
+    }
+
+    @JsonIgnore
+    public Set<String> getParameters(){
+        Set<String> parameters = new HashSet<>();
+
+        Pattern pattern = Pattern.compile("\\%\\%(.*?)\\%\\%");
+        Matcher matcher = pattern.matcher(this.content);
+        while(matcher.find()){
+            parameters.add(matcher.group(1));
+        }
+        return parameters;
     }
 
     public String toJSON() {

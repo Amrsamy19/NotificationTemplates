@@ -8,14 +8,18 @@
   <component name="ChangeListManager">
     <list default="true" id="ec7743a3-2b7d-469d-ba6e-6bfba9259bd5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/IDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/IDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/MongoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/MongoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Notification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Template.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Software/NotificationResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Software/NotificationResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataBase/IDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataBase/IDatabase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataBase/MongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataBase/MongoDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Template.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Template.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/notifications.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/IDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/IDatabase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/MongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/MongoDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/Model/Template.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/Model/Template.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/lib/jackson-annotations-2.11.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/lib/jackson-core-2.11.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/lib/jackson-databind-2.11.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +62,9 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="1lw8iLu4nWHnwpGe2WB9edMmz9r" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -237,7 +243,8 @@
       <workItem from="1608810210146" duration="29076000" />
       <workItem from="1608927555168" duration="3932000" />
       <workItem from="1609075466935" duration="455000" />
-      <workItem from="1609431405216" duration="3182000" />
+      <workItem from="1609431405216" duration="4436000" />
+      <workItem from="1609543843620" duration="10948000" />
     </task>
     <servers />
   </component>

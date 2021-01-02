@@ -1,13 +1,14 @@
 package Model;
 
 import DataValidation.TargetConstraint;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import org.Software.TemplateResource;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 @XmlRootElement
 @TargetConstraint
@@ -18,6 +19,7 @@ public class Notification {
     @NotBlank
     private String target;
     @NotBlank
+    @Pattern(regexp = "^(SMS|MAIL)$", message = "Notification type must be either SMS or MAIL")
     private String type;
     private Map<@NotBlank String, @NotBlank String> parameters;
 
@@ -71,5 +73,12 @@ public class Notification {
 
     public void setParameters(Map<String, String> parameters){
         this.parameters = parameters;
+    }
+
+    public boolean matchParameter(String templateID){
+        TemplateResource templateResource = new TemplateResource();
+        Template template = (Template) templateResource.getTemplate(templateID);;
+        Set<String> templateParameters = template.getParameters();
+        return templateParameters.equals(this.parameters.keySet());
     }
 }

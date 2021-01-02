@@ -46,34 +46,40 @@ public class NotificationResource {
     @POST
     @Path("/create")
     public Object createNotification(Notification notification){
-        String errorMessage;
         IValidator<Notification> notificationValidator = new BaseValidator<>();
-        boolean exist = mongo.exists(notification.getTemplateID());
+        String errorMessage = notificationValidator.isValid(notificationValidator.validate(notification));
+        if(errorMessage != null)
+            return errorMessage;
 
+        boolean exist = mongo.exists(notification.getTemplateID());
         if(!exist)
             return "{\"ErrorCode\":\"404\",\"ErrorMessage\":\"Template is not found\"}";
 
-        errorMessage = notificationValidator.isValid(notificationValidator.validate(notification));
-        if(errorMessage == null)
-            return notificationOperation.createNotification(notification);
-        return errorMessage;
+        boolean parametersMatch = notification.matchParameter(notification.getTemplateID());
+        if(!parametersMatch)
+            return "{\"ErrorCode\":\"400\",\"ErrorMessage\":\"Parameters in the notification and template doesn't match\"}";
+
+        return notificationOperation.createNotification(notification);
     }
 
     @PUT
     @Path("/{notificationID}")
     public Object updateNotification(@PathParam("notificationID") String ID, Notification notification){
         notification.setID(ID);
-        String errorMessage;
-        IValidator<Notification> notificationIValidator = new BaseValidator<>();
-        boolean exist = mongo.exists(notification.getTemplateID());
+        IValidator<Notification> notificationValidator = new BaseValidator<>();
+        String errorMessage = notificationValidator.isValid(notificationValidator.validate(notification));
+        if(errorMessage != null)
+            return errorMessage;
 
+        boolean exist = mongo.exists(notification.getTemplateID());
         if(!exist)
             return "{\"ErrorCode\":\"404\",\"ErrorMessage\":\"Template is not found\"}";
 
-        errorMessage = notificationIValidator.isValid(notificationIValidator.validate(notification));
-        if(errorMessage == null)
-            return notificationOperation.updateNotification(notification);
-        return errorMessage;
+        boolean parametersMatch = notification.matchParameter(notification.getTemplateID());
+        if(!parametersMatch)
+            return "{\"ErrorCode\":\"400\",\"ErrorMessage\":\"Parameters in the notification and template doesn't match\"}";
+
+        return notificationOperation.updateNotification(notification);
     }
 
     @DELETE

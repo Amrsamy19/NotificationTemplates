@@ -6,11 +6,9 @@ import DataBase.MongoNotificationHandlerI;
 import DataValidation.BaseValidator;
 import DataValidation.IValidator;
 import Model.Notification;
-import Model.Template;
 import Service.NotificationOperation;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import org.bson.types.ObjectId;
 
 import java.util.List;
 
@@ -30,10 +28,10 @@ public class NotificationResource {
 
     @GET
     @Path("/get")
-    public Object getNotification(@QueryParam("templateID") String ID) {
+    public Object getNotification(@QueryParam("notificationID") String ID) {
         Object object = notificationOperation.readNotification(ID);
         if(object == null)
-            return "{\"ErrorCode\":\"404\",\"ErrorMessage\":\"Template is not found\"}";
+            return "{\"ErrorCode\":\"404\",\"ErrorMessage\":\"Notification is not found\"}";
         return object;
     }
 
@@ -55,9 +53,9 @@ public class NotificationResource {
         if(!exist)
             return "{\"ErrorCode\":\"404\",\"ErrorMessage\":\"Template is not found\"}";
 
-        boolean parametersMatch = notification.matchParameter(notification.getTemplateID());
-        if(!parametersMatch)
-            return "{\"ErrorCode\":\"400\",\"ErrorMessage\":\"Parameters in the notification and template doesn't match\"}";
+//        boolean parametersMatch = notification.matchParameter(notification.getTemplateID());
+//        if(!parametersMatch)
+//            return "{\"ErrorCode\":\"400\",\"ErrorMessage\":\"Parameters in the notification and template doesn't match\"}";
 
         return notificationOperation.createNotification(notification);
     }
@@ -75,9 +73,9 @@ public class NotificationResource {
         if(!exist)
             return "{\"ErrorCode\":\"404\",\"ErrorMessage\":\"Template is not found\"}";
 
-        boolean parametersMatch = notification.matchParameter(notification.getTemplateID());
-        if(!parametersMatch)
-            return "{\"ErrorCode\":\"400\",\"ErrorMessage\":\"Parameters in the notification and template doesn't match\"}";
+//        boolean parametersMatch = notification.matchParameter(notification.getTemplateID());
+//        if(!parametersMatch)
+//            return "{\"ErrorCode\":\"400\",\"ErrorMessage\":\"Parameters in the notification and template doesn't match\"}";
 
         return notificationOperation.updateNotification(notification);
     }

@@ -2,8 +2,10 @@ package Service;
 
 import DataBase.MongoTemplateHandlerI;
 import Model.Template;
+import org.bson.Document;
 import org.bson.types.ObjectId;
 import java.util.List;
+import java.util.Map;
 
 public class TemplateOperation {
     private MongoTemplateHandlerI mongo;
@@ -12,19 +14,15 @@ public class TemplateOperation {
         this.mongo =  mongo;
     }
 
-    public List<Object> readAllTemplates(){
-        return mongo.GET();
+    public List<Template> readTemplate(Map<String, String> parameters) {
+        return mongo.GET(parameters);
     }
 
-    public Object readTemplate(String ID) {
-        return mongo.GET(ID);
-    }
-
-    public Object createTemplate(Template template){
+    public Template createTemplate(Template template){
         return mongo.POST(template);
     }
 
-    public Object updateTemplate(Template template){
+    public Template updateTemplate(Template template){
         return mongo.PUT(template);
     }
 

@@ -8,8 +8,11 @@ import Model.Template;
 import DataBase.MongoTemplateHandlerI;
 import Service.TemplateOperation;
 import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.*;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Path("/template")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -18,53 +21,63 @@ public class TemplateResource {
     private IDatabase mongo = new MongoDB();
     private MongoTemplateHandlerI mongoDBHandler;
     private TemplateOperation templateOperation;
+    private IValidator<Template> templateValidator;
 
     public TemplateResource(){
         mongo.connectToDB();
         mongoDBHandler = new MongoTemplateHandlerI(mongo);
         templateOperation = new TemplateOperation(mongoDBHandler);
+        templateValidator = new BaseValidator<>();
     }
 
     @GET
     @Path("/get")
-    public Object getTemplate(@QueryParam("templateID") String ID) {
-        Object object = templateOperation.readTemplate(ID);
-        if(object == null)
-            return "{\"ErrorCode\":\"404\",\"ErrorMessage\":\"The Template is not found\"}";
-        return object;
-    }
+    public Response getTemplate(@Context UriInfo uriInfo) {
+        MultivaluedMap<String, String> queryParameters = uriInfo.getQueryParameters();
+        Map<String, String> parameters = new HashMap<>();
 
-    @GET
-    @Path("/getAll")
-    public List<Object> getAllTemplates() {
-        return templateOperation.readAllTemplates();
+        for (String string : queryParameters.keySet())
+            parameters.put(string, queryParameters.getFirst(string));
+
+        return Response
+                .status(Response.Status.OK)
+                .entity(templateOperation.readTemplate(parameters))
+                .build();
     }
 
     @POST
-    @Path("/create")
-    public Object createTemplate(Template template){
-        String errorMessage;
-        IValidator<Template> templateValidator = new BaseValidator<Template>();
-        errorMessage = templateValidator.isValid(templateValidator.validate(template));
+    public Response createTemplate(Template template){
+        String errorMessage = templateValidator.isValid(templateValidator.validate(template));
         if(errorMessage == null)
-            return templateOperation.createTemplate(template);
-        return errorMessage;
+            return Response
+                    .status(Response.Status.OK)
+                    .entity(templateOperation.createTemplate(template))
+                    .build();
+
+        return Response
+                .status(Response.Status.BAD_REQUEST)
+                .entity(errorMessage)
+                .build();
     }
 
     @PUT
     @Path("/{templateID}")
-    public Object updateTemplate(@PathParam("templateID") String ID, Template template){
+    public Response updateTemplate(@PathParam("templateID") String ID, Template template){
         template.setID(ID);
-        String errorMessage;
-        IValidator<Template> templateValidator = new BaseValidator<Template>();
-        errorMessage = templateValidator.isValid(templateValidator.validate(template));
+        String errorMessage = templateValidator.isValid(templateValidator.validate(template));
         if(errorMessage == null)
-            return templateOperation.updateTemplate(template);
-        return errorMessage;
+            return Response
+                    .status(Response.Status.OK)
+                    .entity(templateOperation.updateTemplate(template))
+                    .build();
+
+        return Response
+                .status(Response.Status.BAD_REQUEST)
+                .entity(errorMessage)
+                .build();
     }
 
     @DELETE
-    @Path("/delete")
     public void deleteTemplate(@QueryParam("templateID") String ID){
         templateOperation.deleteTemplate(ID);
     }

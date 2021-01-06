@@ -1,14 +1,15 @@
 package DataBase;
 
 import Model.Template;
+import org.bson.Document;
 import org.bson.types.ObjectId;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IDatabaseHandler<T> {
-    List<Object> GET();
-    Object GET(String ID);
-    Object POST(T object);
-    Object PUT(T object);
+    List<T> GET(Map<String, String> parameters);
+    T POST(T object);
+    T PUT(T object);
     void DELETE(ObjectId ID);
 }

@@ -7,6 +7,7 @@ import org.bson.Document;
 import org.bson.types.ObjectId;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class MongoTemplateHandlerI implements IDatabaseHandler<Template> {
     private MongoDB mongo;
@@ -15,29 +16,32 @@ public class MongoTemplateHandlerI implements IDatabaseHandler<Template> {
         this.mongo = (MongoDB) mongo;
     }
 
-    public List<Object> GET(){
-        List<Object> templates = new ArrayList<>();
-        List<Document> documents = mongo.getDatabase().getCollection("Templates").find().into(new ArrayList<Document>());
-        for(Document document : documents){
-            templates.add(new Template(document.get("_id").toString(),
+    public List<Template> GET(Map<String, String> parameters){
+        BasicDBObject mongoQuery = new BasicDBObject(parameters);
+        List<Template> templates = new ArrayList<>();
+        List<Document> documents;
+
+        if(mongoQuery.containsKey("templateID")) {
+            String id = parameters.get("templateID");
+            mongoQuery.remove("templateID");
+            mongoQuery.put("_id",  new ObjectId(id));
+        }
+
+        if(mongoQuery.isEmpty())
+            documents = mongo.getCollection().find().into(new ArrayList<>());
+        else
+            documents = mongo.getCollection().find(mongoQuery).into(new ArrayList<>());
+
+        for (Document document : documents)
+            templates.add(new Template(
+                    document.get("_id").toString(),
                     (String) document.get("Type"),
                     (String) document.get("Contents")));
-        }
+
         return templates;
     }
 
-    public Object GET(String ID){
-        if(ObjectId.isValid(ID)) {
-            BasicDBObject mongoQuery = new BasicDBObject();
-            mongoQuery.put("_id", new ObjectId(ID));
-            if (mongo.getCollection().countDocuments(mongoQuery) == 1) {
-                Document document = mongo.getCollection().find(mongoQuery).into(new ArrayList<Document>()).get(0);
-                return new Template(document.get("_id").toString(), (String) document.get("Type"), (String) document.get("Contents"));
-            } else return null;
-        } else return null;
-    }
-
-    public Object POST(Template template){
+    public Template POST(Template template){
         MongoDatabase mongoDatabase = mongo.getDatabase();
         Document newDocument = new Document();
         newDocument.append("_id", new ObjectId()).append("Type", template.getType()).append("Contents", template.getContent());
@@ -46,7 +50,7 @@ public class MongoTemplateHandlerI implements IDatabaseHandler<Template> {
         return template;
     }
 
-    public Object PUT(Template template) {
+    public Template PUT(Template template) {
         if (ObjectId.isValid(template.getID())) {
             BasicDBObject searchQuery = new BasicDBObject();
             searchQuery.append("_id", new ObjectId(template.getID()));
@@ -55,9 +59,9 @@ public class MongoTemplateHandlerI implements IDatabaseHandler<Template> {
                     .append("Contents", template.getContent()));
 
             mongo.getCollection().updateOne(searchQuery, mongoQuery);
-            return GET(template.getID());
+            return template;
         }
-        return "{\"ErrorCode\":\"400\",\"ErrorMessage\":\"Wrong ID\"}";
+        return null;
     }
 
     public void DELETE(ObjectId ID){

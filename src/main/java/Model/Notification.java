@@ -27,6 +27,13 @@ public class Notification {
         parameters = new HashMap<>();
     }
 
+    public Notification(@NotBlank String templateID, String target, String type, Map<String, String> parameters) {
+        this.templateID = templateID;
+        this.target = target;
+        this.type = type;
+        this.parameters = parameters;
+    }
+
     public Notification(String ID, @NotBlank String templateID, String target, String type, Map<String, String> parameters) {
         this.ID = ID;
         this.templateID = templateID;
@@ -75,10 +82,10 @@ public class Notification {
         this.parameters = parameters;
     }
 
-    public boolean matchParameter(String templateID){
-        TemplateResource templateResource = new TemplateResource();
-        Template template = (Template) templateResource.getTemplate(templateID);;
-        Set<String> templateParameters = template.getParameters();
-        return templateParameters.equals(this.parameters.keySet());
-    }
+//    public boolean matchParameter(String templateID){
+//        TemplateResource templateResource = new TemplateResource();
+//        Template template = (Template) templateResource.getTemplate(templateID);;
+//        Set<String> templateParameters = template.getParameters();
+//        return templateParameters.equals(this.parameters.keySet());
+//    }
 }

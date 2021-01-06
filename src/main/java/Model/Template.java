@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -70,7 +69,8 @@ public class Template {
         return parameters;
     }
 
-    public String toJSON() {
-        return "{\"_id\":\"" + _id + "\"," + "\"Type\":\"" + type + "\"," + "\"Content\":\"" + content + "\"}";
+    @Override
+    public String toString() {
+        return "_id = " + _id + "\nType = " + type + "\nContent = " + content + "\n";
     }
 }

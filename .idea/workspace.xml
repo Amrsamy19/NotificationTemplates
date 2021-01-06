@@ -8,18 +8,24 @@
   <component name="ChangeListManager">
     <list default="true" id="ec7743a3-2b7d-469d-ba6e-6bfba9259bd5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/IDatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/IDatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/MongoNotificationHandlerI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/MongoNotificationHandlerI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/MongoTemplateHandlerI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/MongoTemplateHandlerI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataValidation/TargetValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataValidation/TargetValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Notification.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Template.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Service/TemplateOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/TemplateOperation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Software/NotificationResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Software/NotificationResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Software/TemplateResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Software/TemplateResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DataBase/IDatabaseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataBase/IDatabaseHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Template.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Template.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Service/TemplateOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/TemplateOperation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/Software/TemplateResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/Software/TemplateResource.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/notifications.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/IDatabaseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/IDatabaseHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/Model/Template.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/Model/Template.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/lib/jackson-annotations-2.11.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/lib/jackson-core-2.11.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/lib/jackson-databind-2.11.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/Service/TemplateOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/Service/TemplateOperation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/org/Software/TemplateResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/org/Software/TemplateResource.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,6 +54,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -70,7 +77,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -87,7 +94,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.10">
+    <configuration name="DemoClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Client.DemoClient" />
+      <module name="notifications" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 9.10" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.10" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -223,6 +243,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DemoClient" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -244,7 +269,16 @@
       <workItem from="1608927555168" duration="3932000" />
       <workItem from="1609075466935" duration="455000" />
       <workItem from="1609431405216" duration="4436000" />
-      <workItem from="1609543843620" duration="10948000" />
+      <workItem from="1609543843620" duration="11056000" />
+      <workItem from="1609624053040" duration="1564000" />
+      <workItem from="1609628624356" duration="2004000" />
+      <workItem from="1609680763225" duration="5209000" />
+      <workItem from="1609692714379" duration="1099000" />
+      <workItem from="1609725202069" duration="6846000" />
+      <workItem from="1609770947014" duration="5519000" />
+      <workItem from="1609870533497" duration="3545000" />
+      <workItem from="1609896369345" duration="442000" />
+      <workItem from="1609942598899" duration="6285000" />
     </task>
     <servers />
   </component>
@@ -263,5 +297,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/DataBase/MongoTemplateHandlerI.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

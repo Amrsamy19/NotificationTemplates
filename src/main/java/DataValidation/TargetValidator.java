@@ -16,6 +16,4 @@ public class TargetValidator implements ConstraintValidator<TargetConstraint, No
             return notification.getTarget().matches("^[A-Za-z0-9+_.-]+@(.+)$");
         return false;
     }
-
-
 }

@@ -8,22 +8,20 @@
   <component name="ChangeListManager">
     <list default="true" id="ec7743a3-2b7d-469d-ba6e-6bfba9259bd5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/IDatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/IDatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/IDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/IDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/MongoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/MongoDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/MongoNotificationHandlerI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/MongoNotificationHandlerI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/MongoTemplateHandlerI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/MongoTemplateHandlerI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataValidation/TargetValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataValidation/TargetValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Notification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Template.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/TemplateOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/TemplateOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Service/NotificationOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/NotificationOperation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Software/NotificationResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Software/NotificationResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Software/TemplateResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Software/TemplateResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataBase/IDatabaseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataBase/IDatabaseHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Template.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Template.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DataBase/IDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataBase/IDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DataBase/MongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataBase/MongoDB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Service/TemplateOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Service/TemplateOperation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/Software/TemplateResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/Software/TemplateResource.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/notifications.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/IDatabaseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/IDatabaseHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/Model/Template.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/Model/Template.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/IDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/IDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/MongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/DataBase/MongoDB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/Service/TemplateOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/Service/TemplateOperation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/org/Software/TemplateResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/notifications/WEB-INF/classes/org/Software/TemplateResource.class" afterDir="false" />
     </list>
@@ -278,7 +276,7 @@
       <workItem from="1609770947014" duration="5519000" />
       <workItem from="1609870533497" duration="3545000" />
       <workItem from="1609896369345" duration="442000" />
-      <workItem from="1609942598899" duration="6285000" />
+      <workItem from="1609942598899" duration="14550000" />
     </task>
     <servers />
   </component>
@@ -297,16 +295,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/DataBase/MongoTemplateHandlerI.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

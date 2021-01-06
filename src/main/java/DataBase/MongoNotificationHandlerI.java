@@ -16,51 +16,49 @@ public class MongoNotificationHandlerI implements IDatabaseHandler<Notification>
         this.mongo = (MongoDB) mongo;
     }
 
-    public List<Object> GET(){
-        List<Object> notifications = new ArrayList<>();
-        List<Document> documents = mongo.getDatabase().getCollection("Notification").find().into(new ArrayList<>());
-        for(Document document : documents){
+    public List<Notification> GET(Map<String, String> parameters){
+        BasicDBObject mongoQuery = new BasicDBObject(parameters);
+        List<Notification> notifications = new ArrayList<>();
+        List<Document> documents;
+
+        if(mongoQuery.containsKey("notificationID")){
+            String id = parameters.get("notificationID");
+            mongoQuery.remove("notificationID");
+            mongoQuery.put("_id", new ObjectId(id));
+        }
+
+        if(mongoQuery.isEmpty())
+            documents = mongo.getDatabase().getCollection("Notification").find().into(new ArrayList<>());
+        else
+            documents = mongo.getDatabase().getCollection("Notification").find(mongoQuery).into(new ArrayList<>());
+
+        for (Document document : documents)
             notifications.add(new Notification(
                     document.get("_id").toString(),
                     (String) document.get("templateID"),
                     (String) document.get("target"),
                     (String) document.get("type"),
+                    (String) document.get("status"),
                     (Map<String, String>) document.get("parameters"))
-                    );
-        }
+            );
         return notifications;
     }
 
-    public Object GET(String ID){
-        if(ObjectId.isValid(ID)) {
-            BasicDBObject mongoQuery = new BasicDBObject();
-            mongoQuery.put("_id", new ObjectId(ID));
-            if (mongo.getDatabase().getCollection("Notification").countDocuments(mongoQuery) == 1) {
-                Document document = mongo.getDatabase().getCollection("Notification").find(mongoQuery).into(new ArrayList<>()).get(0);
-                return new Notification(
-                        document.get("_id").toString(),
-                        (String) document.get("templateID"),
-                        (String) document.get("target"),
-                        (String) document.get("type"),
-                        (Map<String, String>) document.get("parameters")
-                );
-            } else return null;
-        } else return null;
-    }
-
-    public Object POST(Notification notification){
+    public Notification POST(Notification notification){
         Document newDocument = new Document();
         newDocument.append("_id", new ObjectId())
                 .append("templateID", notification.getTemplateID())
                 .append("target", notification.getTarget())
                 .append("type", notification.getType())
+                .append("status", "PENDING")
                 .append("parameters", notification.getParameters());
         mongo.getDatabase().getCollection("Notification").insertOne(newDocument);
         notification.setID(newDocument.get("_id").toString());
+        notification.setStatus("PENDING");
         return notification;
     }
 
-    public Object PUT(Notification notification) {
+    public Notification PUT(Notification notification) {
         if (ObjectId.isValid(notification.getID())) {
             BasicDBObject searchQuery = new BasicDBObject();
             searchQuery.append("_id", new ObjectId(notification.getID()));
@@ -69,12 +67,13 @@ public class MongoNotificationHandlerI implements IDatabaseHandler<Notification>
                     .append("templateID", notification.getTemplateID())
                     .append("target", notification.getTarget())
                     .append("type", notification.getType())
+                    .append("status", notification.getStatus())
                     .append("parameters", notification.getParameters()));
 
             mongo.getDatabase().getCollection("Notification").updateOne(searchQuery, mongoQuery);
-            return GET(notification.getID());
+            return notification;
         }
-        return "{\"ErrorCode\":\"400\",\"ErrorMessage\":\"Wrong ID\"}";
+        return null;
     }
 
     public void DELETE(ObjectId ID){

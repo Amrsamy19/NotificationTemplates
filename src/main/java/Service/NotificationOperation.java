@@ -6,6 +6,7 @@ import Model.Template;
 import org.bson.types.ObjectId;
 
 import java.util.List;
+import java.util.Map;
 
 public class NotificationOperation {
     private MongoNotificationHandlerI mongo;
@@ -14,19 +15,15 @@ public class NotificationOperation {
         this.mongo =  mongo;
     }
 
-    public List<Object> readAllNotifications(){
-        return mongo.GET();
+    public List<Notification> readNotification(Map<String, String> parameters) {
+        return mongo.GET(parameters);
     }
 
-    public Object readNotification(String ID) {
-        return mongo.GET(ID);
-    }
-
-    public Object createNotification(Notification notification){
+    public Notification createNotification(Notification notification){
         return mongo.POST(notification);
     }
 
-    public Object updateNotification(Notification notification){
+    public Notification updateNotification(Notification notification){
         return mongo.PUT(notification);
     }
 

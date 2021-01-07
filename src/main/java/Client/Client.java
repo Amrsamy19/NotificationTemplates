@@ -20,10 +20,10 @@ public class Client {
 
     private static void templateOperations(){
         System.out.println("[1] Create Template\n" +
-                           "[2] Read Template\n" +
-                           "[3] Update Template\n" +
-                           "[4] Delete Template\n" +
-                           "Choice |> ");
+                "[2] Read Template\n" +
+                "[3] Update Template\n" +
+                "[4] Delete Template\n" +
+                "Choice |> ");
         int choice = input.nextInt();
         input.nextLine();
         switch (choice){
@@ -44,11 +44,11 @@ public class Client {
                 HashMap<String, String> parameters = new HashMap<>();
                 String id = "", type = "";
                 System.out.println("Which would you like to search by?\n" +
-                                    "[1] By ID\n" +
-                                    "[2] By Type\n" +
-                                    "[3] Both\n" +
-                                    "[4] Read All\n" +
-                                    "Choice |> ");
+                        "[1] By ID\n" +
+                        "[2] By Type\n" +
+                        "[3] Both\n" +
+                        "[4] Read All\n" +
+                        "Choice |> ");
                 int searchType = input.nextInt();
                 input.nextLine();
                 switch (searchType){
@@ -119,10 +119,10 @@ public class Client {
 
     private static void notificationOperations(){
         System.out.println("[1] Create Notification\n" +
-                           "[2] Read Notification\n" +
-                           "[3] Update Notification\n" +
-                           "[4] Delete Notification\n" +
-                           "Choice |> ");
+                "[2] Read Notification\n" +
+                "[3] Update Notification\n" +
+                "[4] Delete Notification\n" +
+                "Choice |> ");
         int choice = input.nextInt();
         input.nextLine();
 
@@ -249,8 +249,8 @@ public class Client {
 
     private static void dequeueNotifications(){
         System.out.println("[1] Dequeue Mail\n" +
-                           "[2] Dequeue SMS\n" +
-                           "Choice |> ");
+                "[2] Dequeue SMS\n" +
+                "Choice |> ");
         int choice = input.nextInt();
         input.nextLine();
 

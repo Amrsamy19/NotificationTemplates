@@ -111,4 +111,9 @@ public class Notification {
         Set<String> templateParameters = template.getParameters();
         return templateParameters.equals(this.parameters.keySet());
     }
+
+    @Override
+    public String toString(){
+        return "_id = " + ID + "\nTemplateID = " + templateID + "\nType = " + type + "\nTarget = " + target + "\nStatus = " + status + "\nParameters: " + parameters + "\n";
+    }
 }

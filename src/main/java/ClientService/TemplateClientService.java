@@ -31,7 +31,7 @@ public class TemplateClientService implements IClientService<Template> {
         baseTarget = client.target("http://localhost:8080/notifications_war/webapi/template");
     }
 
-    public void GET(HashMap<String, String> parameters) {
+    public List<Template> GET(HashMap<String, String> parameters) {
         ObjectMapper mapper = new ObjectMapper();
         WebTarget getTemplate = prepareURI(parameters);
         Response response = getTemplate.request(MediaType.APPLICATION_JSON).get();
@@ -39,11 +39,10 @@ public class TemplateClientService implements IClientService<Template> {
         List jsonObjects = response.readEntity(List.class);
         List<Template> templates = mapper.convertValue(jsonObjects, new TypeReference<List<Template>>(){});
 
-        if(!templates.isEmpty()){
-            for(Template template : templates)
-                System.out.println(template);
-        } else
+        if(templates.isEmpty()){
             System.out.println("Couldn't find the template");
+        }
+        return templates;
     }
 
     public void POST(Template template) {
